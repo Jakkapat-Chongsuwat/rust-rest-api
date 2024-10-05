@@ -1,0 +1,24 @@
+name: "rust-rest-api"
+
+services:
+  # rust-rest-api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - .:/app
+  #   environment:
+  #     - DATABASE_URL=postgres://postgres:password@db:5432/rust-rest-api
+  #   depends_on:
+  #     - db
+
+  db:
+    container_name: rust-rest-api-db
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
